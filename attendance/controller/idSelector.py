@@ -19,12 +19,17 @@ def idMaker(nFicha):
             os.mkdir(finalPath)
             return id
         else:
+            # Creamos una lista para poner todas las fichas
+            dir = []
             # Busca todos los directorios que hayan, y coge el último
             for file_name in os.listdir(folder):
                 if file_name != 'config' and file_name != 'output' and file_name != 'database' and file_name != 'actual.txt' and file_name != 'model.txt':    
-                    dir = file_name
+                    # dir = file_name
+                    # Agregamos a la lista cada ficha
+                    dir.append(int(file_name))
     
-            id = int(dir)
+            # id = int(dir)
+            id = max(dir)
             id += 1
             id = str(id)
             folder += id
